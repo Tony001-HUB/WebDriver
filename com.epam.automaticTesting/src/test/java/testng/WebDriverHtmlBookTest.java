@@ -43,14 +43,8 @@ public class WebDriverHtmlBookTest
         List<WebElement> searchResult = driver.findElements(By.className("search-title"));
         Assert.assertTrue(searchResult.size()>0, "search result are empty!");
     }
-
-    private static WebElement waitForElementLocated(WebDriver driver, By by) {
-        return new WebDriverWait(driver, 10)
-                .until(ExpectedConditions
-                        .elementToBeClickable(by));
-    }
-
-    @AfterMethod(alwaysRun = true) //наглядно видим выполнение теста;
+    
+     @AfterMethod(alwaysRun = true) //наглядно видим выполнение теста;
     public void screenShot() throws java.io.IOException {
         TakesScreenshot scr = ((TakesScreenshot) driver);
         File file1 = scr.getScreenshotAs(OutputType.FILE);
@@ -60,5 +54,13 @@ public class WebDriverHtmlBookTest
     @AfterMethod(alwaysRun = true)
     public void tearDown() {
         driver.quit();
+        driver = null;
     }
+
+    private static WebElement waitForElementLocated(WebDriver driver, By by) {
+        return new WebDriverWait(driver, 10)
+                .until(ExpectedConditions
+                        .elementToBeClickable(by));
+    }
+    
 }
