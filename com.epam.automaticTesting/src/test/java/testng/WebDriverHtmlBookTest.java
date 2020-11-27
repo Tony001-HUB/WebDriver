@@ -18,7 +18,7 @@ import java.util.concurrent.TimeUnit;
 
 public class WebDriverHtmlBookTest
 {
-    public WebDriver driver;
+    private WebDriver driver;
 
     @BeforeTest(alwaysRun = true)
     public void setUp() {
@@ -57,7 +57,7 @@ public class WebDriverHtmlBookTest
         FileUtils.copyFile(file1, new File("D:\\3 Курс\\EPAM\\com.epam.automaticTesting\\Screenshot.png"));
     }
 
-    @AfterTest(alwaysRun = true)
+    @AfterMethod(alwaysRun = true)
     public void tearDown() {
         driver.quit();
     }
