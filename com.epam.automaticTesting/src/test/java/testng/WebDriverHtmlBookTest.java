@@ -1,5 +1,3 @@
-package testng;
-
 import java.io.File;
 
 import org.apache.commons.io.FileUtils;
@@ -18,6 +16,7 @@ import java.util.concurrent.TimeUnit;
 
 public class WebDriverHtmlBookTest
 {
+
     private WebDriver driver;
 
     @BeforeTest(alwaysRun = true)
@@ -43,8 +42,8 @@ public class WebDriverHtmlBookTest
         List<WebElement> searchResult = driver.findElements(By.className("search-title"));
         Assert.assertTrue(searchResult.size()>0, "search result are empty!");
     }
-    
-     @AfterMethod(alwaysRun = true) //наглядно видим выполнение теста;
+
+    @AfterMethod(alwaysRun = true) //наглядно видим выполнение теста;
     public void screenShot() throws java.io.IOException {
         TakesScreenshot scr = ((TakesScreenshot) driver);
         File file1 = scr.getScreenshotAs(OutputType.FILE);
@@ -62,5 +61,6 @@ public class WebDriverHtmlBookTest
                 .until(ExpectedConditions
                         .elementToBeClickable(by));
     }
-    
+
+
 }
